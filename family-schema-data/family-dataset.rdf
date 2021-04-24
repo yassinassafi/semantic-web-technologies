@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [ <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#"> <!ENTITY class "http://dsti.institute/Family.rdfs"> ]>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns="http://dsti.institute/family.rdfs#"
+   xml:base="http://dsti.institute/family.rdfs-instances"
+>
+
+<Woman rdf:ID="Jen">	
+	<rdf:type rdf:resource="&class;#Engineer"/>	
+	<name rdf:datatype="&xsd;string">Jen</name>
+	<age rdf:datatype="&xsd;integer">42</age>
+	<shoesize rdf:datatype="&xsd;integer">36</shoesize>
+	<trousersize rdf:datatype="&xsd;integer">38</trousersize>	
+	<hasSpouse rdf:resource="#Seb"/>
+	<hasChild rdf:resource="#Anny"/>
+	<hasChild rdf:resource="#Steffen"/>
+	<hasFather rdf:resource="#Thomas"/>
+	<hasColleague rdf:resource="#Fabien"/>
+	<hasColleague rdf:resource="#Catherine"/>
+</Woman>
+
+<Man rdf:ID="Seb">	
+	<name rdf:datatype="&xsd;string">Seb</name>	
+	<hasSpouse rdf:resource="#Jen"/>
+	<hasChild rdf:resource="#Anny"/>
+	<hasChild rdf:resource="#Steffen"/>
+</Man>
+
+<Woman rdf:ID="Anny">	
+	<name rdf:datatype="&xsd;string">Anny</name>
+</Woman>
+
+<Man rdf:ID="Steffen">	
+	<name rdf:datatype="&xsd;string">Steffen</name>
+</Man>
+
+<Man rdf:ID="Thomas">	
+	<name rdf:datatype="&xsd;string">Thomas</name>
+</Man>
+
+<Man rdf:ID="Fabien">	
+	<name rdf:datatype="&xsd;string">Fabien</name>
+</Man>
+
+<Woman rdf:ID="Catherine">		
+	<name rdf:datatype="&xsd;string">Catherine</name>
+</Woman>
+
+</rdf:RDF>

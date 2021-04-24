@@ -1,0 +1,105 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://dsti.institute/family.rdfs> .
+
+<#Human> a :Class ;
+    :label  "human"@en, "person"@en,"homme"@fr, "personne"@fr, "être humain"@fr ;
+    :comment "a member of the human species"@en, "un membre de l'espèce humaine."@fr.
+		
+<#Person> a :Class ;
+	:subClassOf <#Human>;
+    :label  "human"@en, "person"@en,"homme"@fr, "personne"@fr, "être humain"@fr ;
+    :comment "a member of the human species"@en, "un membre de l'espèce humaine."@fr.
+	
+<#Man> a :Class ;
+	:subClassOf <#Person>, <#Human>;
+	:seeAlso <#Woman>;
+	:label "man"@en, "homme"@fr;
+	:comment "an adult male person"@en, "mâle adulte de l'espèce humaine."@fr.
+	
+<#Woman> a :Class ;
+	:subClassOf <#Person>, <#Human>;
+	:seeAlso <#Man>;
+	:label "woman"@en, "femme"@fr;
+	:comment "an adult female person"@en, "femelle adulte de l'espèce humaine."@fr.
+	
+<#FamilyMember> a :Class ;
+	:subClassOf <#Person>, <#Human>.
+			 
+<#Engineer> a :Class ;
+	:subClassOf <#Person>;
+	:label "engineer"@en, "ingénieur"@fr;
+	:comment "a person who designs or maintains machines or structures."@en, "personne qui conçoit ou entretient des machines ou des structures."@fr.
+	
+<#Researcher> a :Class ;
+	:subClassOf <#Person>;
+	:label "researcher"@en, "scientist"@en, "chercheur"@fr, "scientifique"@fr;
+	:comment "a person who devotes himself to doing research"@en, "personne adonnée à des recherches spécialisées."@fr.
+	
+<#name> a rdf:Property ;
+	:range :Literal;
+   	 :label "name"@en, "nom"@fr ;
+    	:comment "designation of something."@en, "désignation de quelque chose."@fr .
+	
+<#age> a rdf:Property ;
+   	 :label "age"@en, "âge"@fr ;
+    	:comment "complete existence duration."@en, "durée complète d'existence."@fr .
+	
+<#shirtsize> a rdf:Property ;
+	:domain <#Person> ;
+    	:label "shirt size"@en, "size"@en, "taille"@fr,"taille de chemise"@fr ;
+    	:comment "express in some way the approximate dimensions of the shirts of a person."@en, "dimensions approximatives des chemises portées par une personne."@fr .
+
+<#shoesize> a rdf:Property ;
+	:domain <#Person> ;
+    	:label "shoe size"@en, "size"@en, "pointure"@fr ;
+   	 :comment "express in some way the approximate length of the shoes for a person."@en, "taille, exprimée en points, des chaussures d'une personne."@fr .
+
+<#trouserssize> a rdf:Property ;
+	:domain <#Person> ;
+    	:label "size"@en, "trousers size"@en, "taille"@fr, "taille de pantalon"@fr ;
+   	 :comment "express in some way the approximate dimensions of the trousers of a person."@en, "dimensions approximatives des pantalons portés par une personne."@fr .
+    
+<#familyLink> a rdf:Property ;
+	:domain <#FamilyMember> ;
+	:range <#FamilyMember> .
+
+<#hasChild> a rdf:Property ;
+	:subPropertyOf <#familyLink>;
+	:domain <#Person> ;
+	:range <#Person> ;
+   	 :label "has for child"@en, "a pour enfant"@fr ;
+    	:comment "relation between a person and another person to which it gave birth."@en, "relation entre une personne et une autre personne auquel il a donné naissance."@fr .
+	
+<#hasFather> a rdf:Property ;
+	:subPropertyOf <#hasParent>;
+	:domain <#Person> ;
+	:range <#Man> ;
+	:label "has for father"@en, "a pour père"@fr ;
+	:comment "to have for parent a male."@en, "avoir pour parent un mâle."@fr .
+	
+<#hasMother> a rdf:Property ;
+	:subPropertyOf <#hasParent>;
+	:domain <#Person> ;
+	:range <#Woman> ;
+	:label "has for mother"@en, "a pour mère"@fr ;
+	:comment "to have for parent a female."@en, "avoir pour parent un femmelle."@fr .
+	
+<#hasParent> a rdf:Property ;
+	:domain <#Person> ;
+	:range <#Person> .
+
+<#hasSpouse> a rdf:Property ;
+	:subPropertyOf <#familyLink>;
+	:domain <#Person> ;
+	:range <#Person> ;
+	:label "has for spouse"@en, "est en ménage avec"@fr ;
+	:comment "a person's partner in marriage."@en, "le partenaire d'une personne dans un mariage."@fr .
+
+<#hasColleague> a rdf:Property ;
+	:domain <#Person> ;
+	:range <#Person> ;
+	:label "has for colleague"@en, "a pour collègue"@fr ;
+	:comment "to have a person with whom one works in a profession."@en, "avoir une personne avec qui on travaille dans une profession."@fr .

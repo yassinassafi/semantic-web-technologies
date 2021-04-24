@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xml:base="http://dsti.institute/family.rdfs"
+>
+
+  <Class rdf:about="http://dsti.institute/family.rdfs#Person">
+    <subClassOf rdf:resource="http://dsti.institute/family.rdfs#Human"/>
+    <label xml:lang="en">person</label>
+    <label xml:lang="en">human</label>
+    <comment xml:lang="en">a member of the human species</comment>
+    <label xml:lang="fr">homme</label>
+    <label xml:lang="fr">être humain</label>
+    <label xml:lang="fr">personne</label>
+    <comment xml:lang="fr">un membre de l'espèce humaine.</comment>
+    <label xml:lang="fr">humain</label>
+    <label xml:lang="en">human being</label>
+  </Class>
+  
+  <Class rdf:about="http://dsti.institute/family.rdfs#Human">
+    <label xml:lang="en">person</label>
+    <label xml:lang="en">human</label>
+    <comment xml:lang="en">a member of the human species</comment>
+    <label xml:lang="fr">homme</label>
+    <label xml:lang="fr">être humain</label>
+    <label xml:lang="fr">personne</label>
+    <comment xml:lang="fr">un membre de l'espèce humaine.</comment>
+    <label xml:lang="fr">humain</label>
+    <label xml:lang="en">human being</label>
+  </Class>
+  
+  <Class rdf:about="http://dsti.institute/family.rdfs#Man">
+    <label xml:lang="fr">homme</label>
+    <comment xml:lang="fr">mâle adulte de l'espèce humaine.</comment>
+    <label xml:lang="en">man</label>
+    <comment xml:lang="en">an adult male person</comment>
+    <subClassOf rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+	<subClassOf rdf:resource="http://dsti.institute/family.rdfs#Human"/>
+    <seeAlso rdf:resource="http://dsti.institute/family.rdfs#Woman"/>
+  </Class>
+
+  <Class rdf:about="http://dsti.institute/family.rdfs#Woman">
+    <seeAlso rdf:resource="http://dsti.institute/family.rdfs#Man"/>
+    <subClassOf rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+	<subClassOf rdf:resource="http://dsti.institute/family.rdfs#Human"/>
+    <comment xml:lang="en">an adult female person</comment>
+    <comment xml:lang="fr">femelle adulte de l'espèce humaine.</comment>
+    <label xml:lang="fr">femme</label>
+    <label xml:lang="en">woman</label>
+  </Class>
+
+  <Class rdf:about="http://dsti.institute/family.rdfs#Researcher">
+    <label xml:lang="en">scientist</label>
+    <label xml:lang="fr">chercheur</label>
+    <label xml:lang="fr">scientifique</label>
+    <label xml:lang="en">researcher</label>
+    <comment xml:lang="en">a person who devotes himself to doing research</comment>
+    <comment xml:lang="fr">personne adonnée à des recherches spécialisées.</comment>
+    <subClassOf rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+  </Class>
+  
+  <Class rdf:about="http://dsti.institute/family.rdfs#Engineer">
+    <label xml:lang="en">engineer</label>
+    <comment xml:lang="en">a person who designs or maintains machines or structures.</comment>
+    <label xml:lang="fr">ingénieur</label>
+    <subClassOf rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <comment xml:lang="fr">personne qui conçoit ou entretient des machines ou des structures.</comment>
+  </Class>
+  
+  <Class rdf:about="http://dsti.institute/family.rdfs#FamilyMember">
+    <label xml:lang="en">family member</label>
+    <label xml:lang="fr">membre de famille</label>
+    <subClassOf rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+  </Class>  
+  
+  <rdf:Property rdf:about="http://dsti.institute/family.rdfs#familyLink">
+    <domain rdf:resource="http://dsti.institute/family.rdfs#FamilyMember"/>
+    <range rdf:resource="http://dsti.institute/family.rdfs#FamilyMember"/>
+  </rdf:Property>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#hasFather">
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <subPropertyOf rdf:resource="http://dsti.institute/family.rdfs#hasParent"/>
+    <label xml:lang="fr">a pour père</label>
+    <range rdf:resource="http://dsti.institute/family.rdfs#Man"/>
+    <label xml:lang="en">has for father</label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <comment xml:lang="en">to have for parent a male.</comment>
+    <comment xml:lang="fr">avoir pour parent un mâle.</comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#hasSpouse">
+    <subPropertyOf rdf:resource="http://dsti.institute/family.rdfs#familyLink"/>
+    <comment xml:lang="en">a person's partner in marriage.</comment>
+    <label xml:lang="en">has for spouse</label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <label xml:lang="fr">est en ménage avec</label>
+    <range rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <comment xml:lang="fr">le partenaire d'une personne dans un mariage.</comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#hasChild">
+    <subPropertyOf rdf:resource="http://dsti.institute/family.rdfs#familyLink"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <range rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <comment xml:lang="en">relation between a person and another person to which it gave birth.</comment>
+    <label xml:lang="en">has for child</label>
+    <comment xml:lang="fr">relation entre une personne et une autre personne auquel il a donné naissance.</comment>
+    <label xml:lang="fr">a pour enfant</label>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#shirtsize">
+    <comment xml:lang="en">express in some way the approximate dimensions of the shirts of a person.</comment>
+    <label xml:lang="en">shirt size</label>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <label xml:lang="en">size</label>
+    <label xml:lang="fr">taille de chemise</label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <comment xml:lang="fr">dimensions approximatives des chemises portées par une personne.</comment>
+    <label xml:lang="fr">taille</label>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#trouserssize">
+    <label xml:lang="en">size</label>
+    <label xml:lang="en">trousers size</label>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <label xml:lang="fr">taille de pantalon</label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <comment xml:lang="fr">dimensions approximatives des pantalons portés par une personne.</comment>
+    <label xml:lang="fr">taille</label>
+    <comment xml:lang="en">express in some way the approximate dimensions of the trousers of a person.</comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#name">
+    <label xml:lang="en">name</label>
+    <comment xml:lang="fr">désignation de quelque chose.</comment>
+    <label xml:lang="fr">nom</label>
+    <range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <comment xml:lang="en">designation of something.</comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#hasMother">
+    <label xml:lang="fr">a pour mère</label>
+    <subPropertyOf rdf:resource="http://dsti.institute/family.rdfs#hasParent"/>
+    <comment xml:lang="en">to have for parent a female.</comment>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <label xml:lang="en">has for mother</label>
+    <range rdf:resource="http://dsti.institute/family.rdfs#Woman"/>
+    <comment xml:lang="fr">avoir pour parent un femmelle.</comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#shoesize">
+    <comment xml:lang="fr">taille, exprimée en points, des chaussures d'une personne.</comment>
+    <label xml:lang="en">size</label>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <label xml:lang="fr">pointure</label>
+    <label xml:lang="en">shoe size</label>
+    <comment xml:lang="en">express in some way the approximate length of the shoes for a person.</comment>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#age">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <label xml:lang="en">age</label>
+    <comment xml:lang="en">complete existence duration.</comment>
+    <comment xml:lang="fr">durée complète d'existence.</comment>
+    <label xml:lang="fr">âge</label>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#hasColleague">
+    <label xml:lang="en">has for colleague</label>
+    <range rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <comment xml:lang="fr">avoir une personne avec qui on travaille dans une profession.</comment>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <label xml:lang="fr">a pour collègue</label>
+    <comment xml:lang="en">to have a person with whom one works in a profession.</comment>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://dsti.institute/family.rdfs#hasParent">
+    <range rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <domain rdf:resource="http://dsti.institute/family.rdfs#Person"/>
+  </rdf:Description>
+</rdf:RDF>
