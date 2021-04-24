@@ -1,0 +1,32 @@
+@prefix : <http://www.inria.fr/2007/09/11/humans.rdfs#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+:PersonShape a sh:NodeShape ;
+
+	sh:targetClass :Person;
+	
+
+	sh:property [
+		sh:message "a Person must have a name"@en;
+		sh:severity sh:Violation;	
+		sh:path :name ;          
+		sh:minCount 1
+	] ;
+	
+	sh:property [
+		sh:message "a Person must have an age"@en;
+		sh:severity sh:Warning;	
+		sh:path :age ;          
+		sh:minCount 1
+	] ;
+	
+	sh:property [
+		sh:message "a Person name must be in english"@en;
+		sh:severity sh:Info;	
+		sh:path :name ;          
+		sh:languageIn ( "en" )
+	] .
